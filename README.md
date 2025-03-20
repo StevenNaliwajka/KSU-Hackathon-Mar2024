@@ -11,6 +11,8 @@ API is a mysql server as well as a wrapper.
 ## API
 To get requirements
 ```angular2html
+apt update
+apt install libmariadb-dev -y
 pip install -r API\requirements.txt
 ```
 To run
