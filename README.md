@@ -1,1 +1,22 @@
-# KSU-Hackathon-Mar2024-
+# KSU-Hackathon-Mar2024
+
+All code was created in a day and a half.
+
+APP/Web was created with mendex.
+
+API is a mysql server as well as a wrapper.
+
+-------------------
+
+## API
+To get requirements
+```angular2html
+pip install -r API\requirements.txt
+```
+To run
+```angular2html
+python3 run_api.py
+```
+
+-----------
+## App
