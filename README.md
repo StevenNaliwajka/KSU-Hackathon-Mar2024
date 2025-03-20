@@ -18,5 +18,8 @@ To run
 python3 run_api.py
 ```
 
+There is ZERO protection or input sanitization for api requests.  
+Just a proof of concept.
+
 -----------
 ## App
