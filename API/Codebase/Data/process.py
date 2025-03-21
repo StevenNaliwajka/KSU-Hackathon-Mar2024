@@ -28,6 +28,7 @@ def process(data):
         line_items_raw = data.get("lineItems", [])
 
         set_list = get_set_list(zip_prefix)
+        print(f"set_list for zip prefix {zip_prefix}: {set_list}")
         db = Database()
         session = db.get_session()
 
