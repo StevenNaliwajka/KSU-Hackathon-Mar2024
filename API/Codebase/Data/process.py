@@ -77,6 +77,9 @@ def process(data):
 
         session.close()
 
+        print(pricing_status)
+        print("notible_line_items", notible_line_items)
+
         return {
             "pricingStatus": pricing_status,
             "lineItems": notible_line_items

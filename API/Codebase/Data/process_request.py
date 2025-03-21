@@ -19,6 +19,6 @@ def process_request():
 
     except Exception as e:
         print("\n--- Exception Occurred ---")
-        traceback.print_exc()  # <---- logs the actual error with file, line, and message
+        traceback.print_exc()
         print("---------------------------\n")
         return jsonify({"error": str(e)}), 500
