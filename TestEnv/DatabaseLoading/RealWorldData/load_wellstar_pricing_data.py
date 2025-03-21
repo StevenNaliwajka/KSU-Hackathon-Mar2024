@@ -153,5 +153,6 @@ def load_wellstar_pricing_data(csv_file):
 # Run the script
 if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_file_path = os.path.join(script_dir, "58-0968382_wellstar-cobb-hospital_standardcharges.csv")
+    temp_path = os.path.join(script_dir, "real_data")
+    csv_file_path = os.path.join(temp_path, "58-0968382_wellstar-cobb-hospital_standardcharges.csv")
     load_wellstar_pricing_data(csv_file_path)
