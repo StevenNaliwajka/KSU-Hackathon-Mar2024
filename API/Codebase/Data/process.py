@@ -65,6 +65,11 @@ def process(data):
                     "CorrectPrice": result["CorrectPrice"]
                 })
 
+
+            print(f"\nProcessing item: {item}")
+            print(f"Collected price matches: {set_match_list}")
+            print(f"User Price: {item.get('Price')} | Match Result: {result}")
+
         session.close()
 
         return {
