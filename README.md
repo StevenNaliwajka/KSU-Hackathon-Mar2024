@@ -17,7 +17,7 @@ pip install -r API\requirements.txt
 ```
 To run
 ```angular2html
-python3 run_api.py
+python3 API.run_api
 ```
 
 There is ZERO protection or input sanitization for api requests.  
