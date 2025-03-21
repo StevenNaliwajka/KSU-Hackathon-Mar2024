@@ -17,19 +17,19 @@ def test_api():
         },
         "lineItems": [
             {
-                "ID": "34010064",
-                "Description": "Focused H/E Straight",
-                "Price": 1200
+                "ID": "0417T",
+                "Description": "HC PROGRAMMING DEVICE EVALUATION CARDIAC MODULATION SYSTEM",
+                "Price": 300
             },
             {
-                "ID": "36010049",
-                "Description": "Example Item",
-                "Price": 899.99
+                "ID": "34010067",
+                "Description": "HC I-131 SERUM ALBUMIN DX PER 5 UCI DOSE",
+                "Price": 355.8
             },
             {
-                "ID": "A9524",
-                "Description": "Should Trigger UnderBill",
-                "Price": 1
+                "ID": "20010042",
+                "Description": "HC CLOSED TX NASAL BONE FX W/MNPJ W/O STABILIZATION",
+                "Price": 22000.40
             }
         ]
     }
