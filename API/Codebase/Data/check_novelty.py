@@ -8,6 +8,7 @@ def check_novelty(user_price, match_dict):
     prices = list(match_dict.values())
     avg_price = sum(prices) / len(prices)
 
+    print (f"avg_price = {avg_price}")
     try:
         user_price = float(user_price)
     except (ValueError, TypeError):
