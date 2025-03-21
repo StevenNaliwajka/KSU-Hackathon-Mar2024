@@ -28,5 +28,7 @@ def check_novelty(user_price, match_dict):
             "CorrectPrice": round(avg_price, 2)
         }
     else:
-        # EXACT MATCH
-        return None
+        return {
+            "Status": "Equal",
+            "CorrectPrice": round(avg_price, 2)
+        }
