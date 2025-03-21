@@ -29,7 +29,7 @@ def load_wellstar_pricing_data(csv_file):
     address = metadata_row[4]
 
     match = re.search(r'\b\d{5}\b$', address.strip())
-    zip = match.group() if match else None
+    zip_code = match.group() if match else None
 
     # Get latest set_id
     latest_set = get_highest_set_id()
@@ -43,7 +43,7 @@ def load_wellstar_pricing_data(csv_file):
             {
                 "hospital_name": hospital_name,
                 "address": address,
-                "zip": zip,
+                "zip": zip_code,
                 "date_of_set": date_of_set,
                 "set_id": new_set_id
             }
@@ -77,7 +77,7 @@ def load_wellstar_pricing_data(csv_file):
                     {
                         "hospital_name": hospital_name,
                         "address": address,
-                        "zip": zip,
+                        "zip": zip_code,
                         "date_of_set": date_of_set,
                         "set_id": new_set_id
                     }
