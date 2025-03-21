@@ -1,5 +1,6 @@
 import csv
 import os
+import re
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
@@ -27,6 +28,9 @@ def load_wellstar_pricing_data(csv_file):
     # "hospital_address"
     address = metadata_row[4]
 
+    match = re.search(r'\b\d{5}\b$', address.strip())
+    zip = match.group() if match else None
+
     # Get latest set_id
     latest_set = get_highest_set_id()
     new_set_id = latest_set + 1
@@ -39,6 +43,7 @@ def load_wellstar_pricing_data(csv_file):
             {
                 "hospital_name": hospital_name,
                 "address": address,
+                "zip": zip,
                 "date_of_set": date_of_set,
                 "set_id": new_set_id
             }
@@ -59,6 +64,7 @@ def load_wellstar_pricing_data(csv_file):
                 Column("set_id", Integer, primary_key=True),
                 Column("hospital_name", String(255)),
                 Column("address", String(255)),
+                Column("zip", Integer),
                 Column("date_of_set", String(100))
             )
             metadata.create_all(db.engine)
@@ -71,6 +77,7 @@ def load_wellstar_pricing_data(csv_file):
                     {
                         "hospital_name": hospital_name,
                         "address": address,
+                        "zip": zip,
                         "date_of_set": date_of_set,
                         "set_id": new_set_id
                     }
