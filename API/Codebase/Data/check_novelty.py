@@ -2,8 +2,10 @@ def check_novelty(user_price, match_dict):
 
     print("NOVELTY FOUND!!!!!")
     if not match_dict:
-        # no matches to compare with
-        return None
+        return {
+            "Status": "DNF",
+            "CorrectPrice": 0
+        }
 
     prices = list(match_dict.values())
     avg_price = sum(prices) / len(prices)

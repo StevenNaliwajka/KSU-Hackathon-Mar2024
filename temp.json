@@ -1,11 +1,17 @@
 {
-  "pricingStatus": "",
-  "lineItems": [
-      {
-      "ID": 99201,
-      "Description": "Focused H/E Straight",
-      "Status": "DoubleBill",
-      "Confidence": 65
-    }
-   ]
+    "pricingData": {
+        "State": "GA",
+        "First3LettersOfZip": "301"
+    },
+    "userData": {
+        "google_sub": "103494999324234235234",
+        "paypal_customer_id": "cus_JjULafXYZ"
+    },
+    "lineItems": [
+        {
+            "ID": "0417T",
+            "Description": "HC PROGRAMMING DEVICE EVALUATION CARDIAC MODULATION SYSTEM",
+            "Price": 300
+        }
+    ]
 }
