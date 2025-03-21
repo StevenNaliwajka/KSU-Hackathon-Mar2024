@@ -1,12 +1,12 @@
 from API.Codebase.DB.connect_to_db import connect_to_db
-
+from sqlalchemy.sql import text
 
 def get_highest_set_id():
     # gets highest set from set ctrl tble
     db = connect_to_db()
     session = db.get_session()
     try:
-        result = session.execute("SELECT MAX(set_ID) FROM set_control").fetchone()
+        result = session.execute(text("SELECT MAX(set_ID) FROM set_control")).fetchone()
         highest_id = result[0] if result[0] is not None else 0
         return highest_id
     except Exception as e:

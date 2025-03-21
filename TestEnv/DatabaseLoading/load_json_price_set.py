@@ -4,6 +4,7 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from sqlalchemy import Column, Integer, String, Float, Table, MetaData, inspect
+from sqlalchemy.sql import text
 from API.Codebase.DB.database import Database
 from TestEnv.DatabaseLoading.get_highest_set_id import get_highest_set_id
 
@@ -26,7 +27,7 @@ def load_json_price_set(json_file):
     session = db.get_session()
     try:
         session.execute(
-            f"INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)",
+            text("INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)"),
             {
                 "hospital_name": hospital_name,
                 "address": address,
@@ -37,12 +38,13 @@ def load_json_price_set(json_file):
         session.commit()
         print(f"Added set_control entry for Set ID {new_set_id}")
 
-
     except Exception as e:
         session.rollback()
         inspector = inspect(db.engine)
 
         if not inspector.has_table("set_control"):
+            print("'set_control' table does not exist. Creating it...")
+
             metadata = MetaData()
             Table(
                 "set_control", metadata,
@@ -52,9 +54,12 @@ def load_json_price_set(json_file):
                 Column("date_of_set", String(100))
             )
             metadata.create_all(db.engine)
+            print("'set_control' table created successfully.")
+
+            # Retry insertion
             try:
                 session.execute(
-                    f"INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)",
+                    text("INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)"),
                     {
                         "hospital_name": hospital_name,
                         "address": address,
@@ -63,13 +68,15 @@ def load_json_price_set(json_file):
                     }
                 )
                 session.commit()
+                print(f"Retried and successfully inserted into set_control for Set ID {new_set_id}")
 
             except Exception as inner_e:
                 session.rollback()
                 print(f"Retry failed: {inner_e}")
                 return
+
         else:
-            print("'set_control' table exists. Error still.")
+            print("'set_control' table exists. The error may be due to another issue.")
             return
 
     finally:
@@ -91,7 +98,7 @@ def load_json_price_set(json_file):
         items = schema["items"]
         for item in items:
             session.execute(
-                f"INSERT INTO {new_table_name} (item_id, description, price) VALUES (:item_id, :description, :price)",
+                text(f"INSERT INTO {new_table_name} (item_id, description, price) VALUES (:item_id, :description, :price)"),
                 {
                     "item_id": item["itemID"],
                     "description": item["description"],
