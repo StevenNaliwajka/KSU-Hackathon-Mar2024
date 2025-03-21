@@ -2,7 +2,7 @@ import csv
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
 from sqlalchemy import Column, Integer, String, Float, Table, MetaData, inspect
 from sqlalchemy.sql import text
 from API.Codebase.DB.database import Database
