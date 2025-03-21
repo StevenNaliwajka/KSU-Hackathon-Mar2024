@@ -21,9 +21,9 @@ def test_api():
 
     # Print Response
     if response.status_code == 200:
-        print("✅ API Response:", json.dumps(response.json(), indent=4))
+        print("API Response:", json.dumps(response.json(), indent=4))
     else:
-        print(f"❌ Error {response.status_code}: {response.text}")
+        print(f"Error {response.status_code}: {response.text}")
 
 if __name__ == "__main__":
     test_api()

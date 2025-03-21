@@ -20,7 +20,7 @@ def load_json_price_set(json_file):
     date_of_set = price_set["date_of_release"]
 
     latest_set = get_highest_set_id()
-    new_set_id = latest_set + 1  # Increment set ID
+    new_set_id = latest_set + 1
     new_table_name = f"set_{new_set_id}"
 
     session = db.get_session()
@@ -49,7 +49,7 @@ def load_json_price_set(json_file):
                 Column("set_id", Integer, primary_key=True),
                 Column("hospital_name", String(255)),
                 Column("address", String(255)),
-                Column("date_of_set", String(100))  # Change to Date if you prefer strict typing
+                Column("date_of_set", String(100))
             )
             metadata.create_all(db.engine)
             try:
@@ -111,4 +111,6 @@ def load_json_price_set(json_file):
 
 # Run the script
 if __name__ == "__main__":
-    load_json_price_set("medical1.json")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    json_file_path = os.path.join(script_dir, "medical1.json")
+    load_json_price_set(json_file_path)
