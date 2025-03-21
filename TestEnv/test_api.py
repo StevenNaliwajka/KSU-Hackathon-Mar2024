@@ -17,17 +17,17 @@ def test_api():
         },
         "lineItems": [
             {
-                "ID": 99201,
+                "ID": "34010064",
                 "Description": "Focused H/E Straight",
                 "Price": 1200
             },
             {
-                "ID": 12345,
+                "ID": "36010049",
                 "Description": "Example Item",
                 "Price": 899.99
             },
             {
-                "ID": 99999,
+                "ID": "A9524",
                 "Description": "Should Trigger UnderBill",
                 "Price": 1
             }
