@@ -1,4 +1,8 @@
 import json
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from sqlalchemy import Column, Integer, String, Float, Table, MetaData, inspect
 from API.Codebase.DB.database import Database
 from TestEnv.DatabaseLoading.get_highest_set_id import get_highest_set_id
