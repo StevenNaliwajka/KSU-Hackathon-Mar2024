@@ -30,6 +30,7 @@ def load_wellstar_pricing_data(csv_file):
 
     match = re.search(r'\b\d{5}\b$', address.strip())
     zip_code = match.group() if match else None
+    print(zip_code)
 
     # Get latest set_id
     latest_set = get_highest_set_id()
