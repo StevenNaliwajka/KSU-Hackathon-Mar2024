@@ -29,5 +29,5 @@ def print_named_set(table_name):
 
 
 if __name__ == "__main__":
-    table_to_print = "set3"
+    table_to_print = "set_3"
     print_named_set(table_to_print)
