@@ -27,6 +27,8 @@ def process(data):
         # Parse line items
         line_items_raw = data.get("lineItems", [])
 
+        print("line_items_raw", line_items_raw)
+
         set_list = get_set_list(zip_prefix)
         # print(f"set_list for zip prefix {zip_prefix}: {set_list}")
         db = Database()
