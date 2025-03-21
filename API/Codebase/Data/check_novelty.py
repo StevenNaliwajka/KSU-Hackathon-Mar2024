@@ -4,7 +4,7 @@ def check_novelty(user_price, match_dict):
     if not match_dict:
         return {
             "Status": "DNF",
-            "CorrectPrice": None
+            "CorrectPrice": 0
         }
 
     prices = list(match_dict.values())
