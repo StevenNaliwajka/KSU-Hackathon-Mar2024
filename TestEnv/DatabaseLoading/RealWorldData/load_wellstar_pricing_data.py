@@ -40,7 +40,8 @@ def load_wellstar_pricing_data(csv_file):
     session = db.get_session()
     try:
         session.execute(
-            text("INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)"),
+            text(
+                "INSERT INTO set_control (hospital_name, address, zip, date_of_set, set_id) VALUES (:hospital_name, :address, :zip, :date_of_set, :set_id)"),
             {
                 "hospital_name": hospital_name,
                 "address": address,
@@ -74,7 +75,8 @@ def load_wellstar_pricing_data(csv_file):
             # Retry insertion
             try:
                 session.execute(
-                    text("INSERT INTO set_control (hospital_name, address, date_of_set, set_id) VALUES (:hospital_name, :address, :date_of_set, :set_id)"),
+                    text(
+                        "INSERT INTO set_control (hospital_name, address, zip, date_of_set, set_id) VALUES (:hospital_name, :address, :zip, :date_of_set, :set_id)"),
                     {
                         "hospital_name": hospital_name,
                         "address": address,
