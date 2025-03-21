@@ -28,7 +28,7 @@ def process(data):
         line_items_raw = data.get("lineItems", [])
 
         set_list = get_set_list(zip_prefix)
-        print(f"set_list for zip prefix {zip_prefix}: {set_list}")
+        # print(f"set_list for zip prefix {zip_prefix}: {set_list}")
         db = Database()
         session = db.get_session()
 
@@ -67,9 +67,9 @@ def process(data):
                 })
 
 
-            print(f"\nProcessing item: {item}")
-            print(f"Collected price matches: {set_match_list}")
-            print(f"User Price: {item.get('Price')} | Match Result: {result}")
+            #print(f"\nProcessing item: {item}")
+            #print(f"Collected price matches: {set_match_list}")
+            #print(f"User Price: {item.get('Price')} | Match Result: {result}")
 
         session.close()
 

@@ -1,6 +1,6 @@
 def check_novelty(user_price, match_dict):
 
-    print("NOVELTY FOUND!!!!!")
+    #print("NOVELTY FOUND!!!!!")
     if not match_dict:
         # no matches to compare with
         return None
