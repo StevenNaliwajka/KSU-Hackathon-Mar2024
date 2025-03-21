@@ -6,8 +6,10 @@ from sqlalchemy.sql import text
 
 def process(data):
     try:
+
         # Parse metadata
         pricing_data = data.get("pricingData", {})
+
         state = pricing_data.get("State", "")
         zip_prefix = pricing_data.get("First3LettersOfZip", "")
 
